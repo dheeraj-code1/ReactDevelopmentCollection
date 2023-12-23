@@ -5,7 +5,6 @@ import { login as authLogin } from '../store/authSlice';
 import { useForm } from 'react-hook-form';
 import {Button,Input,Logo} from './index'
 import authService from '../appwrite/auth';
-import Input from './Header/Input';
 
 function Login(props) {
   const navigate = useNavigate()
@@ -22,7 +21,7 @@ function Login(props) {
         if(userData) dispatch(authLogin(userData))
         navigate("/")
       
-    }
+      }
 
     } catch (error) {
       setError(error.message)

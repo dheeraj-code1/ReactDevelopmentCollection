@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import appwriteService from "../../appwrite/config";
 
-function PostCard({ post }) {
+function PostForm({ post }) {
   const { register, handleSubmit, watch, setValue, control, getValues } =
     useForm({
       defaultValues: {
@@ -137,4 +137,4 @@ function PostCard({ post }) {
   );
 }
 
-export default PostCard;
+export default PostForm;
