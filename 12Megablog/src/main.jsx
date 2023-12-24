@@ -5,14 +5,16 @@ import './index.css'
 import { Provider } from 'react-redux'
 import store from './store/store.js'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Home from './pages/Home.jsx'
-import { AuthLayout, Login } from './components/index.js'
 
-import   AllPosts from './pages/AllPosts.jsx'
+import Home from './pages/Home.jsx'
+import { AuthLayout, Button, Input } from './components/index.js'
+import Login from './pages/Login.jsx'
+import AllPosts from './pages/AllPosts.jsx'
 import AddPost from "./pages/AddPost";
 import Signup from './pages/SignUp'
 import EditPost from './pages/EditPost.jsX'
 import Post from "./pages/Post";
+import Layout from './components/Layout.jsx'
 
 const router = createBrowserRouter([
   {
@@ -24,23 +26,27 @@ const router = createBrowserRouter([
             element: <Home />,
         },
         {
-            path: "/login",
+            path: "login",
             element: (
-                <AuthLayout authentication={false}>
-                    <Login />
-                </AuthLayout>
+                // <AuthLayout authentication={false}>
+                //     <Login />
+                // </AuthLayout>
+                // <Button/>
+                // <Layout />
+                <Login />
             ),
         },
         {
-            path: "/signup",
+            path: "signup",
             element: (
-                <AuthLayout authentication={false}>
+                // <AuthLayout authentication={false}>
+                //     <Signup />
+                // </AuthLayout>
                     <Signup />
-                </AuthLayout>
             ),
         },
         {
-            path: "/all-posts",
+            path: "all-posts",
             element: (
                 <AuthLayout authentication>
                     {" "}
@@ -49,16 +55,18 @@ const router = createBrowserRouter([
             ),
         },
         {
-            path: "/add-post",
+            path: "add-post",
             element: (
-                <AuthLayout authentication>
-                    {" "}
+                // <AuthLayout authentication>
+                //     <h1>helloooo</h1>
+                //     {" "}
+                //     <AddPost />
+                // </AuthLayout>
                     <AddPost />
-                </AuthLayout>
             ),
         },
         {
-            path: "/edit-post/:slug",
+            path: "edit-post/:slug",
             element: (
                 <AuthLayout authentication>
                     {" "}
@@ -67,7 +75,7 @@ const router = createBrowserRouter([
             ),
         },
         {
-            path: "/post/:slug",
+            path: "post/:slug",
             element: <Post />,
         },
     ],

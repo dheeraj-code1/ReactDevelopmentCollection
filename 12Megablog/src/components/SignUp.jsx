@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Input, Button } from "./index";
+import { Input, Button, Logo } from "./index";
 import { useDispatch } from "react-redux";
 import { set, useForm } from "react-hook-form";
 import authService from "../appwrite/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link} from "react-router-dom";
 import { login as authLogin } from "../store/authSlice";
 
 function SignUp(props) {
@@ -11,13 +11,14 @@ function SignUp(props) {
   const dispatch = useDispatch();
   const [error, setError] = useState();
   const { register, handleSubmit } = useForm();
-  const signUp = async () => {
+  const signUp = async (data ) => {
     setError("");
     try {
       const userData = await authService.createAccount(data);
       if (userData) {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(authLogin(userData));
+        authService.login(userData)
         navigate("/");
       }
     } catch (error) {

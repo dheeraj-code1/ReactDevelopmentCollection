@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { login as authLogin } from '../store/authSlice';
 import { useForm } from 'react-hook-form';
 import {Button,Input,Logo} from './index'
 import authService from '../appwrite/auth';
 
-function Login(props) {
+function Login() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [error, setError] = useState("")
-  const {register,handelSubmint} = useForm()
+  const {register, handleSubmit} = useForm()
 
-  const login = async(data) => {
+  const loginn = async(data) => {
     setError("")
     try {
     const session  = await authService.login(data)
@@ -48,8 +48,8 @@ function Login(props) {
                     </Link>
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-        <form onSubmit={handelSubmint(login)}
-        className='mt-8'></form>
+        <form onSubmit={handleSubmit(loginn)}
+        className='mt-8'>
        
           <div className='space-y-5'>
             <Input
@@ -79,8 +79,8 @@ function Login(props) {
               Login In 
             </Button>
         
-
         </div>
+            </form>
       </div>
     </div>
   );
