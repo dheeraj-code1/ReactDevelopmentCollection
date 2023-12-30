@@ -38,7 +38,7 @@ export class AuthService{
 
   async getCurrentUser(){
     try {
-      return await this.account.get()
+      return await this.account.getPrefs()
     } catch (error) {
       console.log("appwrite :: auth.js :: getCurrentUser :: error",error);
     }

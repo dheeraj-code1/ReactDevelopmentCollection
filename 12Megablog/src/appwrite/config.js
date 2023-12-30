@@ -17,11 +17,9 @@ export class service{
   }
   async createPost({title, slug, content, featuredImage, status, userId}){
     try {
-      // console.log("IDDD :".conf.appWriteDatabaseId);
         return await this.databases.createDocument(
           conf.appWriteDatabaseId,
           conf.appWriteCollectionId,
-          // ID.unique(),
             slug,
             {
                 title,
@@ -32,7 +30,7 @@ export class service{
             }
         )
     } catch (error) {
-        console.log("Appwrite serive :: createPost :: error", error);
+        console.log("Appwrite service :: createPost :: error", error);
     }
 }
 
@@ -122,7 +120,7 @@ export class service{
    }
 
 
-   getFilePreview(fileId){
+   getFilePreviewIn(fileId){
     return this.bucket.getFilePreview(
       conf.appWriteBucketId,
       fileId

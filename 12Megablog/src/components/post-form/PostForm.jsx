@@ -42,10 +42,13 @@ function PostForm({ post }) {
             const fileId = file.$id;
             data.featuredImage = fileId;
             const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
-
             if (dbPost) {
                 navigate(`/post/${dbPost.$id}`);
+            }else{
+              // navigate('/')
             }
+    console.log("XYX");
+
         }
     }
 };
@@ -64,7 +67,6 @@ function PostForm({ post }) {
 
   useEffect(() => {
     const subscription = watch((value, { name }) => {
-      console.log(userData);
       if (name === "title") {
         setValue("slug", slugTransform(value.title, { shouldValidate: true }));
       }
@@ -112,7 +114,7 @@ function PostForm({ post }) {
         {post && (
           <div className="w-full mb-4">
             <img
-              src={appwriteService.getFilePreview(post.featuredImage)}
+              src={appwriteService.getFilePreviewIn(post.featuredImage)}
               alt={post.title}
               className="rounded-lg"
             />
