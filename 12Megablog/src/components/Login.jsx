@@ -13,11 +13,13 @@ function Login() {
   const {register, handleSubmit} = useForm()
 
   const loginn = async(data) => {
+    console.log("data :" ,data);
     setError("")
     try {
     const session  = await authService.login(data)
     if (session) {
         const userData = await authService.getCurrentUser()
+        console.log("1: ",userData);
         if(userData) dispatch(authLogin(userData))
         navigate("/")
       
@@ -48,6 +50,7 @@ function Login() {
                     </Link>
         </p>
         {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
+        
         <form onSubmit={handleSubmit(loginn)}
         className='mt-8'>
        

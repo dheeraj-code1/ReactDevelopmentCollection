@@ -54,12 +54,12 @@ export class service{
   }
   async   deletePost(slug){
     try {
-       await this.databases.deleteDocument(
+       return await this.databases.deleteDocument(
         conf.appWriteDatabaseId,
         conf.appWriteCollectionId,
         slug,
       )
-      return true
+    
     } catch (error) {
       console.log("appwrite :: deletePost :: error",error);  
       return false 
@@ -67,12 +67,12 @@ export class service{
   }
   async   getPost(slug){
     try {
-       await this.databases.getDocument(
+      const file = await this.databases.getDocument(
         conf.appWriteDatabaseId,
         conf.appWriteCollectionId,
         slug,
       )
-      return true
+      return file
     } catch (error) {
       console.log("appwrite :: getPost :: error",error);  
       return false 
@@ -81,12 +81,13 @@ export class service{
 
   async getPosts(quries = [Query.equal('status','active')]){
     try {
-      return await this.databases.listDocuments(
+      const posts = await this.databases.listDocuments(
         conf.appWriteDatabaseId,
         conf.appWriteCollectionId,
         quries,
-
       )
+      // console.log("posts  ",posts);
+      return posts
     } catch (error) {
       console.log("appwrite :: getPosts :: error ",error);
     }

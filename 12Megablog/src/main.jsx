@@ -28,50 +28,52 @@ const router = createBrowserRouter([
         {
             path: "login",
             element: (
-                // <AuthLayout authentication={false}>
-                //     <Login />
-                // </AuthLayout>
+                <AuthLayout authentication={false}>
+                    <Login />
+                </AuthLayout>
                 // <Button/>
                 // <Layout />
-                <Login />
+                // <Login />
             ),
         },
         {
             path: "signup",
             element: (
-                // <AuthLayout authentication={false}>
-                //     <Signup />
-                // </AuthLayout>
+                <AuthLayout authentication={false}>
                     <Signup />
+                </AuthLayout>
+                    // <Signup />
             ),
         },
         {
             path: "all-posts",
             element: (
-                <AuthLayout authentication>
+                <AuthLayout authentication={true}>
                     {" "}
                     <AllPosts />
                 </AuthLayout>
+            // <AllPosts />
             ),
         },
         {
             path: "add-post",
             element: (
-                // <AuthLayout authentication>
-                //     <h1>helloooo</h1>
-                //     {" "}
-                //     <AddPost />
-                // </AuthLayout>
+                <AuthLayout authentication={true}>
+                    <h1>helloooo</h1>
+                    {" "}
                     <AddPost />
+                </AuthLayout>
+                    // <AddPost />
             ),
         },
         {
             path: "edit-post/:slug",
             element: (
-                <AuthLayout authentication>
+                <AuthLayout authentication={true}>
                     {" "}
                     <EditPost />
                 </AuthLayout>
+                    // <EditPost />
             ),
         },
         {

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Button, Input, Select, RTE } from "../index";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import appwriteService from "../../appwrite/config";
 
 function PostForm({ post }) {
+  // const [posts, setPosts] =  useState({})
   const { register, handleSubmit, watch, setValue, control, getValues } =
     useForm({
       defaultValues: {
@@ -18,21 +19,25 @@ function PostForm({ post }) {
 
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
-
+  // console.log("22: ",userData);
   const submit = async (data) => {
+    console.log("PostId:: ",data);
+    console.log("userData ",userData);
     if (post) {
-        const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
+      
+      const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
+      if (file) {
+        await appwriteService.deleteFile(post.featuredImage)
+      }
 
-        if (file) {
-            appwriteService.deleteFile(post.featuredImage);
-        }
-
-        const dbPost = await appwriteService.updatePost(post.$id, {
+        const dbPost = await appwriteService.updatePost(data.slug, {
             ...data,
-            featuredImage: file ? file.$id : undefined,
+            featuredImage: file ? file.$id : data.image[0],
         });
 
         if (dbPost) {
+          // setPosts(dbPost)
+          console.log(dbPost);
             navigate(`/post/${dbPost.$id}`);
         }
     } else {
@@ -43,11 +48,13 @@ function PostForm({ post }) {
             data.featuredImage = fileId;
             const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
             if (dbPost) {
+              // setPosts(posts)
+                console.log(dbPost);
                 navigate(`/post/${dbPost.$id}`);
             }else{
               // navigate('/')
             }
-    console.log("XYX");
+
 
         }
     }
@@ -71,9 +78,8 @@ function PostForm({ post }) {
         setValue("slug", slugTransform(value.title, { shouldValidate: true }));
       }
 
-      return () => {
-        subscription.unsubscribe();
-      };
+      return () => subscription.unsubscribe();
+      
     });
   }, [watch, setValue, slugTransform]);
   return (
@@ -83,12 +89,14 @@ function PostForm({ post }) {
           label="title :"
           placeholder="title"
           className="mb-4"
+          defaultValue = {post?.title || ""}
           {...register("title", { required: true })}
         />
         <Input
           label="Slug :"
           placeholder="Slug"
-          className="mb-4"
+          className="mb-4"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxzzzzzzzzzzzz
+          defaultValue = {post?.slug || "custom slug"}
           {...register("slug", { required: true })}
           onInput={(e) => {
             setValue("slug", slugTransform(e.currentTarget.value), {
@@ -111,6 +119,7 @@ function PostForm({ post }) {
           accept="image/png, image/jpg, image/jpeg, image/gif"
           {...register("image", { required: !post })}
         />
+        {/* {console.log("yessss ",post)} */}
         {post && (
           <div className="w-full mb-4">
             <img
