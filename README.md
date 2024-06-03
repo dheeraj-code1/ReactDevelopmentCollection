@@ -4,49 +4,49 @@ Welcome to the React Development Collection repository. This repository contains
 
 ## Projects Overview
 
-### 1. Basic React (`01basicreact` and `01vitereact`)
+### 1. Basic React ([`01basicreact`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/01basicreact) and [`01vitereact`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/01vitereact))
 - **Description**: Introduction to React with simple project setups, demonstrating fundamental React concepts and configurations using both CRA and Vite.
 
 
-### 2. Counter App (`02counter`)
+### 2. Counter App ([`02counter`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/02counter))
 - **Description**: A simple React counter application to demonstrate state management in React.
 
 
-### 3. Tailwind with Props (`03tailwindprops`)
+### 3. Tailwind with Props ([`03tailwindprops`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/03tailwindprops))
 - **Description**: Integration of Tailwind CSS for styling React components and passing props for dynamic styles.
 
 
-### 4. Background Changer (`04bgChanger`)
+### 4. Background Changer ([`04bgChanger`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/04bgChanger))
 - **Description**: A project that focuses on changing the background dynamically with React state.
 
 
-### 5. Password Generator (`05passwordGenerator`)
+### 5. Password Generator ([`05passwordGenerator`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/05passwordGenerator))
 - **Description**: A utility to generate random passwords using React.
 
 
-### 6. Currency Converter (`06currencyconverter`)
+### 6. Currency Converter ([`06currencyconverter`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/06currencyconverter))
 - **Description**: A practical implementation of a currency converter in React.
-### 7. React Router (`07reactrouter`)
+### 7. React Router ([`07reactrouter`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/07reactrouter))
 - **Description**: Demonstrates the use of React Router for navigating between different components/pages.
 
-### 8. Mini Context (`08miniContext`)
+### 8. Mini Context ([`08miniContext`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/08miniContext))
 - **Description**: Usage of React's Context API to manage state globally across components.
 
-### 9. Theme Switcher (`09themeSwitcher`)
+### 9. Theme Switcher ([`09themeSwitcher`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/09themeSwitcher))
 - **Description**: Implementation of a theme switcher using React context to dynamically change the app's theme.
 
-### 10. Todo with Context and Local Storage (`10todoContextLocal`)
+### 10. Todo with Context and Local Storage ([`10todoContextLocal`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/10todoContextLocal))
 - **Description**: A todo application that uses the Context API for state management and local storage for data persistence.
 
-### 11. Redux Toolkit Todo (`11reduxtoolkitTodo`)
+### 11. Redux Toolkit Todo ([`11reduxtoolkitTodo`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/11reduxtoolkitTodo))
 - **Description**: A todo app that showcases the use of Redux Toolkit for state management in React.
-### 12. Mega Blog (`12Megablog`)
+### 12. Mega Blog ([`12Megablog`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/12Megablog))
 - **Description**: A comprehensive blogging platform built with React.
 
-### 13. Agents Debugging (`Agents`)
+### 13. Agents Debugging ([`Agents`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/Agents))
 - **Description**: A debugging project aimed at troubleshooting and improving existing code.
 
-### 14. Custom React (`customReact`)
+### 14. Custom React ([`customReact`](https://github.com/dheeraj-code1/ReactDevelopmentCollection/tree/master/customReact))
 - **Description**: A series of custom React setups demonstrating various custom 
 ## Getting Started
 
